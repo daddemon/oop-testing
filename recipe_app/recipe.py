@@ -32,3 +32,16 @@ class Recipe:
         ing_list = [str(ing) for ing in self.ingredients]
         ing_str = "\n".join(ing_list)
         return f"Блюдо: {self.title}\nСписок ингредиентов:\n{ing_str}"
+
+@dataclass  
+class DietaryRecipe(Recipe):
+    diet_type: str
+
+    def scale(self, ratio: float):
+        new_recipe = super().scale(ratio)
+        return DietaryRecipe(title=self.title, ingredients=new_recipe.ingredients, diet_type=self.diet_type)
+    
+    def __str__(self) -> str:
+        ing_list = [str(ing) for ing in self.ingredients]
+        ing_str = "\n".join(ing_list)
+        return f"[{self.diet_type}] {self.title}\nСписок ингредиентов:\n{ing_str}"
