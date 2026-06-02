@@ -34,7 +34,7 @@ class ShoppingList:
         end_list.sort(key=lambda x: x.name)
         return end_list
         
-    def __add__(self, other: ShoppingList):
+    def __add__(self, other: "ShoppingList"):
         lists = ShoppingList()
         lists._items = self._items + other._items
         return lists

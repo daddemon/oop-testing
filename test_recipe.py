@@ -20,7 +20,7 @@ def test_ingredient_eq():
     ing4 = Ingredient(name="Мука", quantity=500.0, unit="кг")
 
     assert ing1 == ing2
-    assert ing1 != ing2
+    assert ing1 != ing3
     assert ing1 != ing4
 
 
