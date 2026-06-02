@@ -24,3 +24,11 @@ class Recipe:
           scaled_ing.append(new_ing)
         
         return Recipe(title=self.title, ingredients=scaled_ing)
+    
+    def __len__(self):
+        return len(self.ingredients)
+    
+    def __str__(self) -> str:
+        ing_list = [str(ing) for ing in self.ingredients]
+        ing_str = "\n".join(ing_list)
+        return f"Блюдо: {self.title}\nСписок ингредиентов:\n{ing_str}"
